@@ -5,10 +5,9 @@ import React from 'react'
 function BookList() {
  return (
   <div>
-     <Book />
-     <Book />
-     <Book />
-     <Book />
+    <Book bookName='MS Dhoni Untold Story' author='MSD' subject='Cricket'/>
+     <Book bookName='Chasing the way' author='Virat Kohli'subject='Football'/>
+
   </div>
 
  )
@@ -17,25 +16,26 @@ function BookList() {
 }
 
 
-function Author() {
-  return React.createElement('h2',{},'Abhijeet Marathe' )
+function Author(props) {
+  return React.createElement('h2',{},props.author )
 }
 
-function Title() {
-  return React.createElement('h1',{},'Lifes Amazing Secrets' )
+function Title(props) {
+  return React.createElement('h1',{},props.title )
 }
 
-function Subject() { 
-  return <h3>Spirituality</h3>
+function Subject(props) { 
+  const Subject=props.subject
+  return <h3>{ Subject}</h3>
 }
 
-function Book() {
+function Book(props) {
   return (
     
     <div>
-      <Title />
-      <Author />
-      <Subject />
+      <Title  title={props.bookName} />
+      <Author author={props.author} />
+      <Subject subject={props.subject }/>
     </div>
   )
 }
