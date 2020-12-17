@@ -1,11 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react'
-
-
+import Button from './../node_modules/react-bootstrap/Button';
+import Badge from './../node_modules/react-bootstrap/Badge';
+import { useState } from 'react'  
 import {books} from './Books'
+import Card from './../node_modules/react-bootstrap/Card';
 
 
+
+const UseStateCounter= () =>{
+const [counter,setCounter]=useState(0);
+
+return(
+
+  <div>
+    <Card style={{ width: '18rem' }}>
+
+    <h1>Give us Rating</h1>
+  <h3>{counter}</h3>
+  <Button variant="primary" onClick= {() => { setCounter(counter + 1);}}>ADD</Button>
+  
+  <Button onClick={() => {setCounter(counter - 1)}}>DECREASE</Button> 
+  <Button onClick={() => {setCounter(0)}}>RESET</Button> 
+</Card>
+  </div>  
+)
+}
 
 
 function BookList() {
@@ -14,9 +35,12 @@ function BookList() {
   {books.map((book)=> {
     
     return(
+<div>
+<div><UseStateCounter></UseStateCounter></div>
 
 <Book key={book.id} book={book}>
 </Book>
+</div>
 
     )
 
@@ -59,7 +83,6 @@ console.log(props.book.author)
     
     <div> 
       <Title  title={props.book.bookName} />
-      <img src="C:\Users\Abhijeet\Downloads\MSD.jpg" alt="MSD" />
       {/* <Author author={props.book.author} /> */}
       <Subject subject={props.book.subject }/>
       <Rating Rating={props.book.Rating} /> 

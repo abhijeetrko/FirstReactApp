@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './../node_modules/bootstrap/dist/css/bootstrap.css'
 import App from './App';
+import Button from './../node_modules/react-bootstrap/Button';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Button>add</Button>
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
